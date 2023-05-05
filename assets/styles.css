@@ -10,7 +10,7 @@ body{
     padding: 25px;
 }
 
-.strt{
+.strt, .form{
  text-align: center;
 }
 
@@ -19,10 +19,18 @@ body{
     padding-right: 20%;
 }
 
+#strtquiz p{
+    font-weight: bold;
+}
+
 #startquizbutton{
     color: white;
     background-color: rgb(124, 86, 228);
     border-radius: 50px;
+}
+
+#startquizbutton:hover{
+    background-color: orange;
 }
 
 .container .button{
@@ -45,4 +53,19 @@ body{
     background-color: rgb(124, 86, 228);
     font-weight: bold;
     border-radius: 25px;
+}
+
+.button:hover, #subbutton:hover{
+    background-color: orange;
+}
+
+.form{
+    font-weight: bold;
+}
+
+#subbutton{
+    background-color: rgb(124, 86, 228);
+    border-radius: 25px;
+    color: white;
+    margin-left: 13px;
 }

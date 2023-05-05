@@ -14,7 +14,7 @@
             <h3 id = "timeelapsed">Time: <span id = "timeleft"></span></h3>  
         </div>
         <!--Start Quiz question area-->
-        <section class = "container strt">
+        <section class = "container strt" data-state="visible">
             <div id ="strtquiz">
                 <h1>Coding Quiz Challenge</h1>
                 <p>Try Answering The Code Related Questions Within the Time Limit Keep in Mind Each Question Answered Incorrectly Will Be Penalized And Time Will be Subtracted From The Time Limit !
@@ -63,11 +63,11 @@
         </div>
         </section>
         <!--Form Area For Entering Initials-->
-        <form class = "container form" >
-            <div class="">
+        <form >
+            <div class="form" data-state="hidden" >
                 <h1>All Done!</h1>
                 <p>Your Final Score Is: <span id="Score"></span> Points!</p>
-                <p>Enter Initials: <input><button>Submit</button></p>
+                <p>Enter Initials: <input><button id = "subbutton">Submit</button></p>
             </div>
         </form>
 
