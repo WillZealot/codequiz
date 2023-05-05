@@ -5,60 +5,72 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content = "ie-edge">
         <title>Coding Quiz</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="assets/styles.css">
     </head>
+    <!--Highscores area Time Elapsed area-->
     <body>
-        <section id ="viewscores">
+        <div class="topinfo">
             <h3 id = "highscores">View High Scores</h3>
+            <h3 id = "timeelapsed">Time: <span id = "timeleft"></span></h3>  
+        </div>
+        <!--Start Quiz question area-->
+        <section class = "container strt">
+            <div id ="strtquiz">
+                <h1>Coding Quiz Challenge</h1>
+                <p>Try Answering The Code Related Questions Within the Time Limit Keep in Mind Each Question Answered Incorrectly Will Be Penalized And Time Will be Subtracted From The Time Limit !
+                </p>
+                <button id="startquizbutton">Start Quiz</button>
+            </div>
         </section>
-        <section id = "Time">
-            <h3 id = "timeelapsed">Time:<span id = "timeleft"></span></h3>
+        <!--First Question-->
+        <section class="container" data-state="hidden">
+        <div id="firstq">
+        <h1>Q1.Which one Is a Boolean</h1>
+          <button class="button" data-value="False">1. 25</button>
+          <button class="button" data-value="True">2. True</button>
+          <button class="button" data-value="False">3. "Cats"</button>
+          <button class="button" data-value="False">4. FortyFive</button>
+        </div>
         </section>
-        <section>
-            <h1>Coding Quiz Challenge</h1>
-            <p>Try Answering The Code Related Questions Within the Time Limit Keep in Mind Each Question Answered Incorrectly Will Be Penalized And Time Will be Subtracted From The Time Limit !
-            </p>
-            <button>Start Quiz</button>
+        <!--Second Question-->
+        <section class="container"  data-state="hidden">
+        <div id="secondq">
+        <h1>Q2. Which One Is a Boolean </h1>  
+        <button class="button" data-value="False">1. 25</button>
+        <button class="button" data-value="True">2. True</button>
+        <button class="button" data-value="False">3. "Cats"</button>
+        <button class="button" data-value="False">4. FortyFive</button>
+        </div>
         </section>
-        <section data-state="hidden">
-            <h1>Q1.</h1>
-        <div class="container">
-          <button class="button" data-value="False">1. </button>
-          <button class="button" data-value="True">2. </button>
-          <button class="button" data-value="False">3. </button>
-          <button class="button" data-value="False">4. </button>
+        <!--Third Question-->
+        <section class="container" data-state="hidden">
+        <div id = "thirdq">
+            <h1>Q3. Which One Is a Boolean </h1>
+            <button class="button" data-value="False">1. 25</button>
+            <button class="button" data-value="True">2. True</button>
+            <button class="button" data-value="False">3. "Cats"</button>
+            <button class="button" data-value="False">4. FortyFive</button>
+        </div>
         </section>
-        <section data-state="hidden">
-            <h1>Q2. </h1>
-        <div class="container">
-          <button class="button" data-value="False">1. </button>
-          <button class="button" data-value="True">2. </button>
-          <button class="button" data-value="False">3. </button>
-          <button class="button" data-value="False">4. </button>
+        <!--Fourth Question-->
+        <section class="container" data-state="hidden">
+        <div id="fourthq">
+        <h1>Q4. Which One Is a Boolean </h1>
+        <button class="button" data-value="False">1. 25</button>
+        <button class="button" data-value="True">2. True</button>
+        <button class="button" data-value="False">3. "Cats"</button>
+        <button class="button" data-value="False">4. FortyFive</button>
+        </div>
         </section>
-        <section data-state="hidden">
-            <h1>Q3. </h1>
-        <div class="container">
-          <button class="button" data-value="False">1. </button>
-          <button class="button" data-value="True">2. </button>
-          <button class="button" data-value="False">3. </button>
-          <button class="button" data-value="False">4. </button>
-        </section>
-        <section data-state="hidden">
-            <h1>Q4. </h1>
-        <div class="container">
-          <button class="button" data-value="False">1. </button>
-          <button class="button" data-value="True">2. </button>
-          <button class="button" data-value="False">3. </button>
-          <button class="button" data-value="False">4. </button>
-        </section>
-        <form>
+        <!--Form Area For Entering Initials-->
+        <form class = "container form" >
             <div class="">
                 <h1>All Done!</h1>
                 <p>Your Final Score Is: <span id="Score"></span> Points!</p>
                 <p>Enter Initials: <input><button>Submit</button></p>
             </div>
         </form>
+
             <script src="./assets/script.js"></script>
     </body>
   

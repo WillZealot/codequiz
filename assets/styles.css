@@ -1,0 +1,48 @@
+body{
+    background-color: rgb(243, 240, 240);
+    font-family: 'verdana';
+}
+
+.topinfo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+.strt{
+ text-align: center;
+}
+
+#strtquiz{
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+#startquizbutton{
+    color: white;
+    background-color: rgb(124, 86, 228);
+    border-radius: 50px;
+}
+
+.container .button{
+    display: flex;
+    flex-wrap: wrap;
+    display: block;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+.button{
+    border-width: 2.5px;
+    min-height: auto;
+    margin-top: 5px;
+    padding: 9px;
+    color: white;
+    background-color: rgb(124, 86, 228);
+    font-weight: bold;
+    border-radius: 25px;
+}
