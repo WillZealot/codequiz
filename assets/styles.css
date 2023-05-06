@@ -3,7 +3,15 @@ body{
     font-family: 'verdana';
 }
 
-.topinfo{
+[data-state="hidden"] {
+    display: none;
+  }
+
+[data-state="visible"] {
+    display: 100%;
+  } 
+
+  .topinfo{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
