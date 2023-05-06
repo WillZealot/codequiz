@@ -11,7 +11,7 @@
     <body>
         <div class="topinfo">
             <h3 id = "highscores">View High Scores</h3>
-            <h3 id = "timeelapsed">Time: <span id = "timeleft"></span></h3>  
+            <h3 id = "timeelapsed">Time: <span id = "timeleft">75</span></h3>  
         </div>
         <!--Start Quiz question area-->
         <section class = "container strt" data-state="visible">
@@ -25,7 +25,7 @@
         <!--First Question-->
         <section class="container" data-state="hidden">
         <div id="firstq">
-        <h1>Q1.Which one Is a Boolean</h1>
+        <h1>Q1.Which one Is a Boolean ?</h1>
           <button class="button" data-value="False">1. 25</button>
           <button class="button" data-value="True">2. True</button>
           <button class="button" data-value="False">3. "Cats"</button>
@@ -35,7 +35,7 @@
         <!--Second Question-->
         <section class="container"  data-state="hidden">
         <div id="secondq">
-        <h1>Q2. Which One Is a Boolean </h1>  
+        <h1>Q2. Which One Is a Boolean ?</h1>  
         <button class="button" data-value="False">1. 25</button>
         <button class="button" data-value="True">2. True</button>
         <button class="button" data-value="False">3. "Cats"</button>
@@ -45,7 +45,7 @@
         <!--Third Question-->
         <section class="container" data-state="hidden">
         <div id = "thirdq">
-            <h1>Q3. Which One Is a Boolean </h1>
+            <h1>Q3. Which One Is a Boolean ?</h1>
             <button class="button" data-value="False">1. 25</button>
             <button class="button" data-value="True">2. True</button>
             <button class="button" data-value="False">3. "Cats"</button>
@@ -55,7 +55,7 @@
         <!--Fourth Question-->
         <section class="container" data-state="hidden">
         <div id="fourthq">
-        <h1>Q4. Which One Is a Boolean </h1>
+        <h1>Q4. Which One Is a Boolean ?</h1>
         <button class="button" data-value="False">1. 25</button>
         <button class="button" data-value="True">2. True</button>
         <button class="button" data-value="False">3. "Cats"</button>
@@ -63,11 +63,11 @@
         </div>
         </section>
         <!--Form Area For Entering Initials-->
-        <form >
-            <div class="form" data-state="hidden" >
+        <form id = "alldoneform" data-state="hidden">
+            <div class="form" >
                 <h1>All Done!</h1>
                 <p>Your Final Score Is: <span id="Score"></span> Points!</p>
-                <p>Enter Initials: <input><button id = "subbutton">Submit</button></p>
+                <p>Enter Initials: <input id = "initials"><button id = "subbutton">Submit</button></p>
             </div>
         </form>
 
