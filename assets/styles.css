@@ -3,19 +3,17 @@ body{
     font-family: 'verdana';
 }
 
-[data-state="hidden"] {
-    display: none;
-  }
-
-[data-state="visible"] {
-    display: 100%;
-  } 
-
   .topinfo{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 25px;
+}
+
+#highscores a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
 }
 
 .strt, .form{
@@ -35,6 +33,7 @@ body{
     color: white;
     background-color: rgb(124, 86, 228);
     border-radius: 50px;
+    cursor: pointer;
 }
 
 #startquizbutton:hover{
@@ -61,6 +60,7 @@ body{
     background-color: rgb(124, 86, 228);
     font-weight: bold;
     border-radius: 25px;
+    cursor: pointer;
 }
 
 .button:hover, #subbutton:hover{
@@ -76,4 +76,5 @@ body{
     border-radius: 25px;
     color: white;
     margin-left: 13px;
+    cursor: pointer;
 }
