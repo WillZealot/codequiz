@@ -16,7 +16,7 @@ body{
     cursor: pointer;
 }
 
-.strt, .form{
+.strt, .hideform{
  text-align: center;
 }
 
@@ -40,7 +40,7 @@ body{
     background-color: orange;
 }
 
-.container .button{
+.container #button1,#button2,#button3,#button4{
     display: flex;
     flex-wrap: wrap;
     display: block;
@@ -51,7 +51,7 @@ body{
     display: flex;
     justify-content: center;
 }
-.button{
+#button1,#button2,#button3,#button4{
     border-width: 2.5px;
     min-height: auto;
     margin-top: 5px;
@@ -63,11 +63,11 @@ body{
     cursor: pointer;
 }
 
-.button:hover, #subbutton:hover{
+#button1:hover,#button2:hover,#button3:hover,#button4:hover, #subbutton:hover{
     background-color: orange;
 }
 
-.form{
+.hideform{
     font-weight: bold;
 }
 

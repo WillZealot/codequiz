@@ -10,7 +10,7 @@
     <!--Highscores area Time Elapsed area-->
     <body>
         <div class="topinfo">
-            <h3 id = "highscores">View High Scores</h3>
+            <h3 id = "highscores"><a href = "/highscores.html">View High Scores</a></h3>
             <h3 id = "timeelapsed">Time: <span id = "timeleft">60</span></h3>  
         </div>
         <!--Start Quiz question area-->
@@ -24,17 +24,17 @@
         </section>
         <!--Question-->
         <section class="container">
-        <div id="question" data-question = "">
-        <h1> </h1>
-          <button class="button" data-value="False"></button>
-          <button class="button" data-value="True"></button>
-          <button class="button" data-value="False"></button>
-          <button class="button" data-value="False"></button>
+        <div id = "quizdata">
+        <h1 id ="quizQuestion" > Which One Is A Boolean?</h1>
+          <button id="button1" data-value="False">Red</button>
+          <button id="button2" data-value="True">True</button>
+          <button id="button3" data-value="False">Cat</button>
+          <button id="button4" data-value="False">125</button>
         </div>
         </section>
         <!--Form Area For Entering Initials-->
-        <form id = "alldoneform">
-            <div class="form">
+        <form name="idForm">
+            <div class="hideform" class="form">
                 <h1>All Done!</h1>
                 <p>Your Final Score Is: <span id="Score"></span> Points!</p>
                 <p>Enter Initials: <input id = "initials"><button id = "subbutton">Submit</button></p>
