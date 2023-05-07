@@ -31,8 +31,6 @@ window.onload = function() {
 //This is my little countdown timer
 let timer = 60;
 
-
-
 // Unfortunately it starts when the page loads but I want to add an event listener so that it will only start when I press Start Quiz 
 
 
@@ -59,35 +57,52 @@ startquiz.addEventListener('click', function() {
     }, 1000);
 });
 
-allAnswers.forEach(function(answer) {
-    answer.addEventListener('click', function() {
-        question.setAttribute("style", "display:none");
-    for (let i = 0; i < allAnswers.length; i++) {
-        allAnswers[i].style.display = "none";
-      }
-      // do something here
-    });
-  });
-
-  allAnswers.forEach(function(answer) {
-    answer.addEventListener('click', function() {
-      question.setAttribute("style", "display:");
-      for (let i = 0; i < allAnswers.length; i++) {
-        allAnswers[i].style.display = "";
-      }
-      // call a function to update the question and answers
-      updateQuestionAndAnswers("Which one changes the text", [".textContent", "setAttribute()", "splice()", "Answer 4"]);
-    });
-  });
-  
-  function updateQuestionAndAnswers(newQuestion, newAnswers) {
-    // update the question text
-    question.textContent = newQuestion;
-    // update each answer text
-    for (let i = 0; i < allAnswers.length; i++) {
-      allAnswers[i].textContent = newAnswers[i];
+let questions = [
+    {
+      question: "Which one changes the text?",
+      answers: [".textContent", "setAttribute()", "splice()", "Answer 4"],
+      correctAnswer: ".textContent"
+    },
+    {
+      question: "What is the is the name of a true or false valued variable ?",
+      answers: ["slap", "java", "boolean", "spoof"],
+      correctAnswer: "boolean"
     }
-  }
+  ];
+
+let currentQuestion = 0;
+
+
+
+//allAnswers.forEach(function(answer) {
+//    answer.addEventListener('click', function() {
+//        question.setAttribute("style", "display:none");
+//    for (let i = 0; i < allAnswers.length; i++) {
+//        allAnswers[i].style.display = "none";
+//      }
+      // do something here
+//    });
+//  });
+
+// allAnswers.forEach(function(answer) {
+//    answer.addEventListener('click', function() {
+//      question.setAttribute("style", "display:");
+//      for (let i = 0; i < allAnswers.length; i++) {
+//        allAnswers[i].style.display = "";
+//      }
+//     // call a function to update the question and answers
+//      updateQuestionAndAnswers("Which one changes the text", [".textContent", "setAttribute()", "splice()", "Answer 4"]);
+//    });
+//  });
+  
+//  function updateQuestionAndAnswers(newQuestion, newAnswers) {
+    // update the question text
+//    question.textContent = newQuestion;
+    // update each answer text
+//    for (let i = 0; i < allAnswers.length; i++) {
+//      allAnswers[i].textContent = newAnswers[i];
+//   }
+//  }
 
 // allAnswers.forEach(function(answer) {
 //    answer.addEventListener('click', function() {
