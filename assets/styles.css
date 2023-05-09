@@ -1,5 +1,6 @@
 body{
-    background-color: rgb(243, 240, 240);
+    background-image: url(https://images.saymedia-content.com/.image/t_share/MTkzOTUzODU0MDkyNjgyNzU3/particlesjs-examples.gif);
+    background-size: 100%;
     font-family: 'verdana';
 }
 
@@ -31,13 +32,11 @@ body{
 
 #startquizbutton{
     color: white;
-    background-color: rgb(124, 86, 228);
-    border-radius: 50px;
+    width: 60%;
+    background-color: green;
+    min-height: 40px;
+    border-radius: 5px;
     cursor: pointer;
-}
-
-#startquizbutton:hover{
-    background-color: orange;
 }
 
 .container, .btn{
@@ -53,18 +52,33 @@ body{
 }
 .btn{
     border-width: 2.5px;
+    width: 75%;
     min-height: auto;
     margin-top: 5px;
     padding: 9px;
     color: white;
-    background-color: rgb(124, 86, 228);
+    background-color: tan;
     font-weight: bold;
-    border-radius: 25px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.btn:hover, #subbutton:hover{
-    background-color: orange;
+#next-btn{
+    border-width: 2.5px;
+    width: 25%;
+    min-height: auto;
+    margin-top: 25px;
+    padding: 9px;
+    color: white;
+    background-color: green;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.btn:hover, #subbutton:hover, #next-btn:hover, #startquizbutton:hover{
+    opacity: 0.5;
 }
 
 .hideform{
@@ -72,7 +86,7 @@ body{
 }
 
 #subbutton{
-    background-color: rgb(124, 86, 228);
+    background-color: green;
     border-radius: 25px;
     color: white;
     margin-left: 13px;

@@ -7,6 +7,51 @@ let questAnswEl = document.getElementById("quizdata");
 let formEl = document.getElementById("form");
 
 let introEl = document.getElementById("strtquiz");
+
+const questions = [
+  {
+    question: "Which one changes the text?",
+    answers: [
+      {text: "", correct: "false"},
+      {text: "", correct: "false"},
+      {text: "", correct: "false"},
+      {text: "", correct: "false"}
+    ],
+  },
+  {
+    question: "What is the is the name of a true or false valued variable ?",
+    answers: [
+      {text: "", correct: "false"},
+      {text: "", correct: "false"},
+      {text: "", correct: "false"},
+      {text: "", correct: "false"}
+    ],
+  },
+  {
+      question: "What is the is the name of a true or false valued variable ?",
+      answers: [
+        {text: "", correct: "false"},
+        {text: "", correct: "false"},
+        {text: "", correct: "false"},
+        {text: "", correct: "false"}
+      ],
+    },
+    {
+      question: "What is the is the name of a true or false valued variable ?",
+      answers: [
+        {text: "", correct: "false"},
+        {text: "", correct: "false"},
+        {text: "", correct: "false"},
+        {text: "", correct: "false"}
+      ]
+    },
+];
+
+let currentQuestion = 0;
+
+let questionEl = document.getElementById("question");
+let answerButton = document.getElementById("answer-buttons");
+let nextButton = document.getElementById("next-btn");
 /////////////////////////////////////////////////////////////////
 let timer = 60;
 function countdownEl(){
@@ -53,49 +98,6 @@ startEl.addEventListener('click', function() {
   showQuestionAndAnswers();
   hideStrt();
 });
-
-let allAnswers = [0];
-
-let questions = [
-    {
-      question: "Which one changes the text?",
-      answers: [
-        {text: "", correct: "false"},
-        {text: "", correct: "false"},
-        {text: "", correct: "false"},
-        {text: "", correct: "false"}
-      ],
-    },
-    {
-      question: "What is the is the name of a true or false valued variable ?",
-      answers: [
-        {text: "", correct: "false"},
-        {text: "", correct: "false"},
-        {text: "", correct: "false"},
-        {text: "", correct: "false"}
-      ],
-    },
-    {
-        question: "What is the is the name of a true or false valued variable ?",
-        answers: [
-          {text: "", correct: "false"},
-          {text: "", correct: "false"},
-          {text: "", correct: "false"},
-          {text: "", correct: "false"}
-        ],
-      },
-      {
-        question: "What is the is the name of a true or false valued variable ?",
-        answers: [
-          {text: "", correct: "false"},
-          {text: "", correct: "false"},
-          {text: "", correct: "false"},
-          {text: "", correct: "false"}
-        ]
-      },
-  ];
-
-let currentQuestion = 0;
 
 
   
