@@ -10,8 +10,12 @@ body{
     padding: 25px;
 }
 
-#highscores a{
+#highscores {
+    font-size: 20px;
+    font-weight: 600;
     text-decoration: none;
+    background-color: transparent;
+    border-color: transparent;
     color: black;
     cursor: pointer;
 }

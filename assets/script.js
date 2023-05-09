@@ -9,7 +9,12 @@ let introEl = document.getElementById("strtquiz");
 let questionElement = document.getElementById("question");
 let answerButtons = document.getElementById("answer-buttons");
 let nextButton = document.getElementById("next-btn");
-////////////////////////////////////////////////////////////////////////////////////
+let viewHigh = document.getElementById("highscores")
+
+let submitEl = document.getElementById("subbutton");
+
+let highScores = [];
+ ////////////////////////////////////////////////////////////////////////////////////
 const questions = [
   {
     question: "Which one changes the text?",
@@ -50,7 +55,6 @@ const questions = [
 ];
 
 let currentQuestionIndex = 0;
-let score = 0;
 ////////////////////////////////////////////////////////////////////////
 function startQuiz(){
   currentQuestionIndex = 0;
@@ -107,6 +111,7 @@ function showScore(){
   questionElement.innerHTML = `You Scored ${score} out of ${questions.length}!`;
   nextButton.innerHTML = "Play Again";
   nextButton.style.display = 'block';
+
 }
 
 function handleNextButton(){
@@ -117,6 +122,7 @@ function handleNextButton(){
     showScore();
   }
   showForm();
+
 }
 
 nextButton.addEventListener("click",()=>{
@@ -124,6 +130,7 @@ nextButton.addEventListener("click",()=>{
     handleNextButton();
   }else{
     startQuiz();
+    formEl.setAttribute("style", "display:none")
   }
 })
 //////////////////////////////////////////////////////////////////////
@@ -159,6 +166,7 @@ function showStuff(){
   answerButtons.setAttribute("style", "display:")
   nextButton.setAttribute("style", "display:")
 }
+///////////////////////////////////////////////////////
 
 function showForm() {
   if (currentQuestionIndex === questions.length) {
@@ -169,6 +177,33 @@ function showForm() {
   }
 }
 //////////////////////////////////////////////////////////////////
+highScores.sort(function(a, b) {
+  return b.score - a.score;
+});
+////////////////////////////////////////////////////////////////////
+function submitScore() {
+  const initials = document.getElementById("initials").value;
+  const score = {
+    initials: initials,
+    score: score
+  };
+  let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  highScores.push(score);
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+}
+///////////////////////////////////////////////////////////////////
+function viewHighScores() {
+  let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  highScores.sort((a, b) => b.score - a.score);
+  let scoresList = document.createElement("ul");
+  highScores.forEach(score => {
+    let scoreItem = document.createElement("li");
+    scoreItem.textContent = `${score.initials}: ${score.score}`;
+    scoresList.appendChild(scoreItem);
+  });
+  viewHigh.parentNode.insertBefore(scoresList, viewHigh.nextSibling);
+}
+///////////////////////////////////////////////////////////////////
 //Onload funtion hides some elements I dont want the user to see
 window.onload = function() {
   hideStuff();
@@ -182,6 +217,22 @@ startEl.addEventListener('click', function() {
 
 });
 
+submitEl.addEventListener("click", function (e){
+  e.preventDefault();
+  let initials = document.getElementById("initials").value;
+  let scoreObj = {initials: initials, score: score};
+  highScores.push(scoreObj);
+});
+
+viewHigh.addEventListener("click", function() {
+  let highScoresList = document.createElement("ul");
+  highScores.forEach(function(scoreObj) {
+    let scoreItem = document.createElement("li");
+    scoreItem.textContent = scoreObj.initials + " - " + scoreObj.score;
+    highScoresList.appendChild(scoreItem);
+  });
+  viewHigh.appendChild(highScoresList);
+});
 
   
 
