@@ -55,7 +55,7 @@ body{
     min-height: auto;
     margin-top: 5px;
     padding: 9px;
-    color: white;
+    color: black;
     background-color: tan;
     font-weight: bold;
     border-radius: 5px;
@@ -64,17 +64,21 @@ body{
 
 #next-btn{
     border-width: 2.5px;
-    width: 25%;
+    width: 100%;
     min-height: auto;
     margin-top: 25px;
     padding: 9px;
     color: white;
     background-color: green;
+    text-decoration: underline;
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
 }
 
+.btn:disabled{
+    cursor: no-drop;
+}
 
 .btn:hover, #subbutton:hover, #next-btn:hover, #startquizbutton:hover{
     opacity: 0.5;

@@ -1,4 +1,4 @@
-
+let timeText = document.getElementById("timeelapsed");
 let startEl = document.getElementById("startquizbutton");
 let countdown = document.getElementById("timeleft");
 
@@ -30,7 +30,7 @@ const questions = [
     ],
   },
   {
-      question: "What haracter asigns a variable?",
+      question: "What character assigns a variable?",
       answers: [
         {text: "+", correct: "false"},
         {text: "=", correct: "true"},
@@ -88,14 +88,46 @@ function selectedAnswer(e){
   const selectedBtn = e.target;
   const isCorrect = selectedBtn.dataset.correct === "true";
   if(isCorrect){
-    selectedBtn.classList.add("correct"); 
+    selectedBtn.classList.add("correct");
+    score++;
 }else{
-  selectedBtn.classList.add("incorrect");
-  timer - 5;
+  selectedBtn.classList.add("incorrect")
 }
+Array.from(answerButtons.children).forEach(button=> {
+  if(button.dataset.correct === "true"){
+    button.classList.add("correct");
+  }
+  button.disabled = true;
+});
+nextButton.style.display = "block";
 }
+
+function showScore(){
+  resetState();
+  questionElement.innerHTML = `You Scored ${score} out of ${questions.length}!`;
+  nextButton.innerHTML = "Play Again";
+  nextButton.style.display = 'block';
+}
+
+function handleNextButton(){
+  currentQuestionIndex++;
+  if(currentQuestionIndex < questions.length){
+    showQuestion();
+  }else{
+    showScore();
+  }
+  showForm();
+}
+
+nextButton.addEventListener("click",()=>{
+  if(currentQuestionIndex < questions.length){
+    handleNextButton();
+  }else{
+    startQuiz();
+  }
+})
 //////////////////////////////////////////////////////////////////////
-let timer = 60;
+let timer = 30;
 function countdownEl(){
   setInterval(function timers() {
     let timeLeft = timer;
@@ -126,6 +158,15 @@ function showStuff(){
   questionElement.setAttribute("style", "display:")
   answerButtons.setAttribute("style", "display:")
   nextButton.setAttribute("style", "display:")
+}
+
+function showForm() {
+  if (currentQuestionIndex === questions.length) {
+    countdown.textContent = "Quiz Complete";
+    countdown.setAttribute("style", "display:none");
+    timeText.setAttribute("style", "display:none");
+    formEl.setAttribute("style", "display:");
+  }
 }
 //////////////////////////////////////////////////////////////////
 //Onload funtion hides some elements I dont want the user to see
