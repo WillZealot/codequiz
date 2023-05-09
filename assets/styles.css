@@ -1,5 +1,4 @@
 body{
-    background-image: url(https://images.saymedia-content.com/.image/t_share/MTkzOTUzODU0MDkyNjgyNzU3/particlesjs-examples.gif);
     background-size: 100%;
     font-family: 'verdana';
 }
@@ -91,4 +90,11 @@ body{
     color: white;
     margin-left: 13px;
     cursor: pointer;
+}
+
+.correct{
+    background: #9aeabc;
+}
+.incorrect{
+    background: #ff9393;
 }
