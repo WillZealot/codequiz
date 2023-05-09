@@ -40,7 +40,7 @@ body{
     background-color: orange;
 }
 
-.container #button1,#button2,#button3,#button4{
+.container, .btn{
     display: flex;
     flex-wrap: wrap;
     display: block;
@@ -51,7 +51,7 @@ body{
     display: flex;
     justify-content: center;
 }
-#button1,#button2,#button3,#button4{
+.btn{
     border-width: 2.5px;
     min-height: auto;
     margin-top: 5px;
@@ -63,7 +63,7 @@ body{
     cursor: pointer;
 }
 
-#button1:hover,#button2:hover,#button3:hover,#button4:hover, #subbutton:hover{
+.btn:hover, #subbutton:hover{
     background-color: orange;
 }
 

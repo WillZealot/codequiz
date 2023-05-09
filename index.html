@@ -15,9 +15,9 @@
         </div>
         <!--Start Quiz question area-->
         <section class = "strt">
-            <div id ="strtquiz" data-state="visible">
+            <div id ="strtquiz">
                 <h1>Coding Quiz Challenge</h1>
-                <p>Try Answering The Code Related Questions Within the Time Limit Keep in Mind Each Question Answered Incorrectly Will Be Penalized And Time Will be Subtracted From The Time Limit !
+                <p>Try Answering The Code Related Questions Within the Time Limit. Keep In Mind The More Time It Takes You To Complete The Quiz The Lower Your Score!
                 </p>
                 <button id="startquizbutton">Start Quiz</button>
             </div>
@@ -25,15 +25,18 @@
         <!--Question-->
         <section class="container">
         <div id = "quizdata">
-        <h1 id ="quizQuestion" > </h1>
-          <button id="button1" data-value="False"></button>
-          <button id="button2" data-value="True"></button>
-          <button id="button3" data-value="False"></button>
-          <button id="button4" data-value="False"></button>
+        <h2 id ="Question" >Question Goes Here?</h2>
+        <div id="answer-buttons">
+          <button class = "btn" >Answer 1</button>
+          <button class = "btn" >Answer 2</button>
+          <button class = "btn" >Answer 3</button>
+          <button class = "btn" >Answer 4</button>
+        </div>
+        <button id="next-btn">Next</button>
         </div>
         </section>
         <!--Form Area For Entering Initials-->
-        <form name="idForm">
+        <form id ="form"name="idForm">
             <div class="hideform" class="form">
                 <h1>All Done!</h1>
                 <p>Your Final Score Is: <span id="Score"></span> Points!</p>
