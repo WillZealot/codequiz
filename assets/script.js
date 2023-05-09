@@ -9,11 +9,13 @@ let introEl = document.getElementById("strtquiz");
 let questionElement = document.getElementById("question");
 let answerButtons = document.getElementById("answer-buttons");
 let nextButton = document.getElementById("next-btn");
-let viewHigh = document.getElementById("highscores")
+let viewHighscoresButton = document.getElementById("highscores")
 
 let submitEl = document.getElementById("subbutton");
 
-let highScores = [];
+
+ ////////////////////////////////////////////////////////////////////////////////////
+
  ////////////////////////////////////////////////////////////////////////////////////
 const questions = [
   {
@@ -122,6 +124,7 @@ function handleNextButton(){
     showScore();
   }
   showForm();
+  document.getElementById("initials").value = "";
 
 }
 
@@ -149,8 +152,6 @@ function countdownEl(){
 }
 //////////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////////////
-
 function hideStuff(){
   questionElement.setAttribute("style", "display:none")
   answerButtons.setAttribute("style", "display:none")
@@ -176,34 +177,11 @@ function showForm() {
     formEl.setAttribute("style", "display:");
   }
 }
-//////////////////////////////////////////////////////////////////
-highScores.sort(function(a, b) {
-  return b.score - a.score;
-});
-////////////////////////////////////////////////////////////////////
-function submitScore() {
-  const initials = document.getElementById("initials").value;
-  const score = {
-    initials: initials,
-    score: score
-  };
-  let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-  highScores.push(score);
-  localStorage.setItem("highScores", JSON.stringify(highScores));
-}
 ///////////////////////////////////////////////////////////////////
-function viewHighScores() {
-  let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-  highScores.sort((a, b) => b.score - a.score);
-  let scoresList = document.createElement("ul");
-  highScores.forEach(score => {
-    let scoreItem = document.createElement("li");
-    scoreItem.textContent = `${score.initials}: ${score.score}`;
-    scoresList.appendChild(scoreItem);
-  });
-  viewHigh.parentNode.insertBefore(scoresList, viewHigh.nextSibling);
-}
-///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+
 //Onload funtion hides some elements I dont want the user to see
 window.onload = function() {
   hideStuff();
@@ -220,19 +198,14 @@ startEl.addEventListener('click', function() {
 submitEl.addEventListener("click", function (e){
   e.preventDefault();
   let initials = document.getElementById("initials").value;
-  let scoreObj = {initials: initials, score: score};
-  highScores.push(scoreObj);
+  document.getElementById("initials").value = "";
+  
 });
 
-viewHigh.addEventListener("click", function() {
-  let highScoresList = document.createElement("ul");
-  highScores.forEach(function(scoreObj) {
-    let scoreItem = document.createElement("li");
-    scoreItem.textContent = scoreObj.initials + " - " + scoreObj.score;
-    highScoresList.appendChild(scoreItem);
-  });
-  viewHigh.appendChild(highScoresList);
+viewHighscoresButton.addEventListener('click', function() {
+  alert("hello");
 });
+
 
   
 
