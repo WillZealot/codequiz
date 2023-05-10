@@ -1,14 +1,15 @@
 let timeText = document.getElementById("timeelapsed");
 let startEl = document.getElementById("startquizbutton");
 let countdown = document.getElementById("timeleft");
-
+/////////////////////////////////////////////////////////////////
 let formEl = document.getElementById("form");
-
+///////////////////////////////////////////////////////////////////
 let introEl = document.getElementById("strtquiz");
-
+//////////////////////////////////////////////////////////////////////
 let questionElement = document.getElementById("question");
 let answerButtons = document.getElementById("answer-buttons");
 let nextButton = document.getElementById("next-btn");
+////////////////////////////////////////////////////////////////////////
 let viewHighscoresButton = document.getElementById("highscores")
 
 let submitEl = document.getElementById("subbutton");
@@ -108,6 +109,7 @@ Array.from(answerButtons.children).forEach(button=> {
 nextButton.style.display = "block";
 }
 
+score = 0;
 function showScore(){
   resetState();
   questionElement.innerHTML = `You Scored ${score} out of ${questions.length}!`;
@@ -201,9 +203,11 @@ submitEl.addEventListener("click", function (e){
   document.getElementById("initials").value = "";
   
 });
-
+///////////////////////////////////////////////////////////working here rn broseph dont forget!!!!!!!!!!
+localStorage.setItem('highScores', score);
+///////////////////////////////////////////////////////////
 viewHighscoresButton.addEventListener('click', function() {
-  alert("hello");
+  
 });
 
 
