@@ -91,23 +91,7 @@ function resetState(){
   }
 }
 //////////////////////////////////////////////////////////////////////
-function selectedAnswer(e){
-  const selectedBtn = e.target;
-  const isCorrect = selectedBtn.dataset.correct === "true";
-  if(isCorrect){
-    selectedBtn.classList.add("correct");
-    score++;
-}else{
-  selectedBtn.classList.add("incorrect")
-}
-Array.from(answerButtons.children).forEach(button=> {
-  if(button.dataset.correct === "true"){
-    button.classList.add("correct");
-  }
-  button.disabled = true;
-});
-nextButton.style.display = "block";
-}
+
 
 score = 0;
 function showScore(){
@@ -141,17 +125,39 @@ nextButton.addEventListener("click",()=>{
 //////////////////////////////////////////////////////////////////////
 let timer = 30;
 function countdownEl(){
-  setInterval(function timers() {
-    let timeLeft = timer;
+  let interval = setInterval(function() {
+    timeLeft = timer;
     if(timeLeft > 0){
-        timer --;
-        countdown.textContent = timer;
-    } if (timeLeft === 0){
-        clearInterval(timers);
+      timer--;
+      countdown.textContent = timer;
     }
-    console.log(timer);
-}, 1000);
+    if (timeLeft === 0){
+      clearInterval(interval);
+      forceShutOff();
+    }
+  }, 1000);
 }
+///////////////////////////////////////////////////////////////////
+function selectedAnswer(e){
+  const selectedBtn = e.target;
+  const isFalse = selectedBtn.dataset.incorrect === "true";
+  const isCorrect = selectedBtn.dataset.correct === "true";
+  if(isCorrect){
+    selectedBtn.classList.add("correct");
+    score++;
+}else{
+  selectedBtn.classList.add("incorrect");
+  timer -= 5;
+}
+Array.from(answerButtons.children).forEach(button=> {
+  if(button.dataset.correct === "true"){
+    button.classList.add("correct");
+  }
+  button.disabled = true;
+});
+nextButton.style.display = "block";
+}
+
 //////////////////////////////////////////////////////////////////
 
 function hideStuff(){
@@ -180,6 +186,15 @@ function showForm() {
   }
 }
 ///////////////////////////////////////////////////////////////////
+function forceShutOff(){
+  if(countdown.textContent == "0" && formEl.style.display === "none"){
+    alert("You Didnt Finish The Quiz In Time...You Forfeit All Points.The Quiz Will Reset!");
+    location.reload();
+
+  }else{
+    ;
+  }
+}
 ///////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
@@ -199,6 +214,7 @@ startEl.addEventListener('click', function() {
 
 submitEl.addEventListener("click", function (e){
   e.preventDefault();
+  clearInterval(timer);
   let initials = document.getElementById("initials").value;
   document.getElementById("initials").value = "";
   
