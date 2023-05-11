@@ -12,11 +12,9 @@ let nextButton = document.getElementById("next-btn");
 ////////////////////////////////////////////////////////////////////////
 let initials = document.getElementById("initials");
 let viewHighscoresButton = document.getElementById("highscores");
-let highScoresList = document.getElementById('high-scores-list');
 let submitEl = document.getElementById("subbutton");
 let score = 0;
- ////////////////////////////////////////////////////////////////////////////////////
- 
+let highScoresList = document.getElementById('scoreListEl');
  ////////////////////////////////////////////////////////////////////////////////////
 const questions = [
   {
@@ -249,6 +247,40 @@ submitEl.addEventListener("click", function (e){
   
 });
 ///////////////////////////////////////////////////////////working here rn broseph dont forget!!!!!!!!!!
+
+viewHighscoresButton.addEventListener('click', function showHighScoresList() {
+  alert("To Go Back hover over any highscore !")
+  introEl.setAttribute("style", "display:none");
+  answerButtons.setAttribute("style", "display:none");
+  nextButton.setAttribute("style", "display:none");
+  formEl.setAttribute("style", "display:none");
+  questionElement.setAttribute("style", "display:none");
+  // Get the high scores from localStorage
+  const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+  
+  // Sort the high scores by score (highest first)
+  highScores.sort((a, b) => b.Score - a.Score);
+
+  // Create an HTML string for the list items
+  const listItems = highScores.map(score => `<li class="topScores">${score.Initials}: ${score.Score}</li>`).join('');
+
+  // Set the innerHTML of the high scores list
+  const scoreListEl = document.getElementById('scoreListEl');
+  scoreListEl.innerHTML = listItems;
+
+  // Position the high scores list below the view high scores button
+  const buttonRect = viewHighscoresButton.getBoundingClientRect();
+  highScoresList.style.position = 'absolute';
+  highScoresList.style.top = `${buttonRect.bottom}px`;
+  highScoresList.style.left = `${buttonRect.left}px`;
+
+  // Show the high scores list
+  highScoresList.style.display = 'block';
+} );
+
+highScoresList.addEventListener("mouseenter", function(){
+  location.reload();
+})
 
 
   

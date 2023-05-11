@@ -114,3 +114,15 @@ h1 ,p{
 .incorrect{
     background: #ff9393;
 }
+
+#scoreListEl{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+}
+
+.topScores{
+    list-style-type: none;
+    color: white;
+}
