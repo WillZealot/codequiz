@@ -10,13 +10,13 @@ let questionElement = document.getElementById("question");
 let answerButtons = document.getElementById("answer-buttons");
 let nextButton = document.getElementById("next-btn");
 ////////////////////////////////////////////////////////////////////////
-let viewHighscoresButton = document.getElementById("highscores")
-
+let initials = document.getElementById("initials");
+let viewHighscoresButton = document.getElementById("highscores");
+let highScoresList = document.getElementById('high-scores-list');
 let submitEl = document.getElementById("subbutton");
-
- ////////////////////////////////////////////////////////////////////////////////////
 let score = 0;
-
+ ////////////////////////////////////////////////////////////////////////////////////
+ 
  ////////////////////////////////////////////////////////////////////////////////////
 const questions = [
   {
@@ -173,6 +173,28 @@ function showStuff(){
   nextButton.setAttribute("style", "display:")
 }
 ///////////////////////////////////////////////////////
+function getHighScores(){
+  let currentInitials = initials.value;
+  let currentScore = score;
+  let myScores = [{
+    "Initials" : currentInitials,
+    "Score" : currentScore
+  }];
+
+  let highScores = localStorage.getItem("highScores");
+  if (highScores) {
+    highScores = JSON.parse(highScores);
+    highScores.push(myScores[0]);
+    highScores.sort((a, b) => b.Score - a.Score);
+  } else {
+    highScores = myScores;
+  }
+  
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+
+  console.log(highScores);
+}
+//////////////////////////////////////////////////////
 
 function showForm() {
   if (currentQuestionIndex === questions.length) {
@@ -210,15 +232,23 @@ startEl.addEventListener('click', function() {
 });
 
 submitEl.addEventListener("click", function (e){
+
   e.preventDefault();
+
   clearInterval(timer);
-  let initials = document.getElementById("initials").value;
-  document.getElementById("initials").value = "";
+  //location.reload();
+
+  getHighScores();
+
+ // myScores = [
+ //   {"Initials": initials , "Score": score}
+ // ]
+ // localStorage.setItem("highScores", JSON.stringify([]));
+//console.log(localStorage.getItem("highScores"));
+  
   
 });
 ///////////////////////////////////////////////////////////working here rn broseph dont forget!!!!!!!!!!
-// Get user initials and score after quiz is completed
 
-  
 
   
