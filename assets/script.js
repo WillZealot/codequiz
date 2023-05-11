@@ -57,15 +57,15 @@ const questions = [
 
 let currentQuestionIndex = 0;
 ////////////////////////////////////////////////////////////////////////
-function startQuiz(){
+function startQuiz(){ //resets the quiz and starts the quiz.
   currentQuestionIndex = 0;
   score = 0;
   nextButton.innerHtml = "Next";
-  showQuestion();
+  showQuestion();// displays the current question and options.
 }
 ////////////////////////////////////////////////////////////////////////
-function showQuestion(){
-  resetState();
+function showQuestion(){ // displays the current question and options.
+  resetState(); // resets the state of the quiz.
   let currentQuestion = questions[currentQuestionIndex];
   let questionNo = currentQuestionIndex + 1;
   questionElement.innerHTML = questionNo + ". "+ currentQuestion.question;
@@ -82,14 +82,14 @@ function showQuestion(){
   });
 }
 //////////////////////////////////////////////////////////////////////
-function resetState(){
+function resetState(){ // resets the state of the quiz.
   nextButton.style.display = "none";
   while(answerButtons.firstChild){
     answerButtons.removeChild(answerButtons.firstChild);
   }
 }
 //////////////////////////////////////////////////////////////////////
-function showScore(){
+function showScore(){ //displays the final score.
   resetState();
   questionElement.innerHTML = `You Scored ${score} out of ${questions.length}!`;
   nextButton.innerHTML = "Play Again";
@@ -97,7 +97,7 @@ function showScore(){
 
 }
 
-function handleNextButton(){
+function handleNextButton(){ //handles the event when the next button is clicked.
   currentQuestionIndex++;
   if(currentQuestionIndex < questions.length){
     showQuestion();
@@ -119,7 +119,7 @@ nextButton.addEventListener("click",()=>{
 })
 //////////////////////////////////////////////////////////////////////
 let timer = 30;
-function countdownEl(){
+function countdownEl(){ //starts the timer for the quiz.
   let interval = setInterval(function() {
     timeLeft = timer;
     if(timeLeft > 0){
@@ -133,7 +133,7 @@ function countdownEl(){
   }, 1000);
 }
 ///////////////////////////////////////////////////////////////////
-function selectedAnswer(e){
+function selectedAnswer(e){ //handles the event when an answer is selected.
   const selectedBtn = e.target;
   const isFalse = selectedBtn.dataset.incorrect === "true";
   const isCorrect = selectedBtn.dataset.correct === "true";
@@ -155,7 +155,7 @@ nextButton.style.display = "block";
 
 //////////////////////////////////////////////////////////////////
 
-function hideStuff(){
+function hideStuff(){ //hides the quiz elements.
   questionElement.setAttribute("style", "display:none")
   answerButtons.setAttribute("style", "display:none")
   nextButton.setAttribute("style", "display:none")
@@ -163,7 +163,7 @@ function hideStuff(){
 }
 
 //////////////////////////////////////////////////////////////////
-function showStuff(){
+function showStuff(){ //shows the quiz elements.
 
   introEl.setAttribute("style", "display:none")
   questionElement.setAttribute("style", "display:")
@@ -171,7 +171,7 @@ function showStuff(){
   nextButton.setAttribute("style", "display:")
 }
 ///////////////////////////////////////////////////////
-function getHighScores(){
+function getHighScores(){ //gets the high scores from the local storage and updates the high score list.
   let currentInitials = initials.value;
   let currentScore = score;
   let myScores = [{
@@ -194,7 +194,7 @@ function getHighScores(){
 }
 //////////////////////////////////////////////////////
 
-function showForm() {
+function showForm() { //shows the form for submitting the score and initials
   if (currentQuestionIndex === questions.length) {
     countdown.textContent = "Quiz Complete";
     countdown.setAttribute("style", "display:none");
@@ -203,7 +203,7 @@ function showForm() {
   }
 }
 ///////////////////////////////////////////////////////////////////
-function forceShutOff(){
+function forceShutOff(){ // If the timer reaches 0 but the player hasnt answered all questions
   if(countdown.textContent == "0" && formEl.style.display === "none"){
     alert("You Didnt Finish The Quiz In Time...You Forfeit All Points.The Quiz Will Reset!");
     location.reload();
@@ -229,7 +229,7 @@ startEl.addEventListener('click', function() {
 
 });
 
-submitEl.addEventListener("click", function (e){
+submitEl.addEventListener("click", function (e){ 
 
   e.preventDefault();
 
@@ -246,7 +246,7 @@ submitEl.addEventListener("click", function (e){
   
   
 });
-///////////////////////////////////////////////////////////working here rn broseph dont forget!!!!!!!!!!
+///////////////////////////////////////////////////////////
 
 viewHighscoresButton.addEventListener('click', function showHighScoresList() {
   alert("To Go Back hover over any highscore !")
