@@ -14,8 +14,8 @@ let viewHighscoresButton = document.getElementById("highscores")
 
 let submitEl = document.getElementById("subbutton");
 
-
  ////////////////////////////////////////////////////////////////////////////////////
+let score = 0;
 
  ////////////////////////////////////////////////////////////////////////////////////
 const questions = [
@@ -91,9 +91,6 @@ function resetState(){
   }
 }
 //////////////////////////////////////////////////////////////////////
-
-
-score = 0;
 function showScore(){
   resetState();
   questionElement.innerHTML = `You Scored ${score} out of ${questions.length}!`;
@@ -220,12 +217,7 @@ submitEl.addEventListener("click", function (e){
   
 });
 ///////////////////////////////////////////////////////////working here rn broseph dont forget!!!!!!!!!!
-localStorage.setItem('highScores', score);
-///////////////////////////////////////////////////////////
-viewHighscoresButton.addEventListener('click', function() {
-  
-});
-
+// Get user initials and score after quiz is completed
 
   
 
